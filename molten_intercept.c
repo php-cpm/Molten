@@ -86,7 +86,7 @@ static char *convert_args_to_string(mo_frame_t *frame)
 {
     int i = 0;
     int arg_len = 0;
-#define ARGS_MAX_LEN 64
+#define ARGS_MAX_LEN 128
 #define ARGS_ELLIPSIS "..."
 #define ARGS_ELLIPSIS_LEN (sizeof("...") - 1)
 #define ARGS_REAL_LEN (ARGS_MAX_LEN - ARGS_ELLIPSIS_LEN - 1)
@@ -102,9 +102,9 @@ static char *convert_args_to_string(mo_frame_t *frame)
 
     for (; i < frame->arg_count; i++) {
 #if PHP_VERSION_ID < 70000
-        tmp = repr_zval(frame->ori_args[i], 32);
+        tmp = repr_zval(frame->ori_args[i], 64);
 #else
-        tmp = repr_zval(((zval *)(frame->ori_args) + i), 32);
+        tmp = repr_zval(((zval *)(frame->ori_args) + i), 64);
 #endif
         real_len = smart_string_len(tmp)  + 1;
         if ((arg_len + real_len) >= ARGS_REAL_LEN)  {
