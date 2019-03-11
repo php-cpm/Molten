@@ -1634,15 +1634,15 @@ void mo_intercept_ctor(mo_interceptor_t *pit, struct mo_chain_st *pct, mo_span_b
         RIE(Redis@eval);
         RIE(Redis@evalSha);
         RIE(Redis@script);
-        RIE(Redis@getLastError);
-        RIE(Redis@clearLastError);
+//        RIE(Redis@getLastError);
+//        RIE(Redis@clearLastError);
         RIE(Redis@_prefix);
         RIE(Redis@_serialize);
         RIE(Redis@_unserialize);
         /* Introspection */
         RIE(Redis@isConnected);
-        RIE(Redis@getHost);
-        RIE(Redis@getPort);
+//        RIE(Redis@getHost);
+//        RIE(Redis@getPort);
         RIE(Redis@getDbNum);
         RIE(Redis@getTimeout);
         RIE(Redis@getReadTimeout);
